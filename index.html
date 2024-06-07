@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clock</title>
+
+    <!-- ============= start of images icon ⏱️ =========== -->
+    <link rel="website Icon" href="./images/images.jpg">
+
+
+
+
+    <!-- ============= start of fonts =========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Noto+Nastaliq+Urdu:wght@400..700&display=swap"
+        rel="stylesheet"> -->
+
+
+    <!-- ============= start of styles =========== -->
+    <link rel="stylesheet" href="./css/analogClock.css">
+    <link rel="stylesheet" href="./css/numbersClock.css">
+
+</head>
+
+
+
+
+
+<body>
+
+    <section class="allClock">
+        <!-- ============== ⏱️ ساعة عقارب =========== -->
+        <!-- ============== start of Analog clock =========== -->
+        <section class="btnClock_Digital_Analog">
+            <button id="btnAnalog" class="none" onclick="handleBtnAnalog()">ساعة عقارب / Analog clock</button>
+            <button id="btnDigital" onclick="handleBtnDigital()">ساعة رقمية / Digital Clock</button>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ============== ⏱️ ساعة عقارب =========== -->
+        <!-- ============== start of Analog clock =========== -->
+        <!-- ============== ⏱️ غلاف الساعة =========== -->
+        <!-- ============== start of clock wrapper =========== -->
+        <section class="clock_wrapper">
+
+            <div class="bar_seconds"></div>
+
+
+            <div class="number_hours">
+
+
+                <div class="hands_box">
+                    <div class="hand hours">
+                        <i></i>
+                    </div>
+                    <div class="hand minutes">
+                        <i></i>
+                    </div>
+                    <div class="hand seconds">
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <!-- ============== ⏱️0️⃣1️⃣1️⃣6️⃣ ساعة ارقام =========== -->
+        <!-- ============== Digital clock =========== -->
+        <section class="DigitalClock none">
+            <!-- ============== ⏱️ غلاف الساعة =========== -->
+            <!-- ============== start of clock wrapper =========== -->
+            <div class="bar_seconds_hr"></div>
+            <div class="bar_seconds_min"></div>
+            <div class="bar_seconds_sec"></div>
+
+        </section>
+    </section>
+
+    <script src="./js/analogClock.js"></script>
+    <script src="./js/numbersClock.js"></script>
+</body>
+
+</html>

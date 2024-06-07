@@ -1,0 +1,613 @@
+.DigitalClock {
+    /* background-color: red; */
+    position: relative;
+    width: 70%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 180px;
+    /* display: none; */
+}
+
+.DigitalClock .bar_seconds_hr,
+.bar_seconds_min,
+.bar_seconds_sec {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.DigitalClock .bar_seconds_hr h2,
+.DigitalClock .bar_seconds_min h2,
+.DigitalClock .bar_seconds_sec h2 {
+    position: absolute;
+    top: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+
+.DigitalClock .bar_seconds_hr h2 span,
+.DigitalClock .bar_seconds_min h2 span,
+.DigitalClock .bar_seconds_sec h2 span {
+    position: absolute;
+    bottom: -5px;
+    font-size: 10px;
+    font-family: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+
+
+.DigitalClock .bar_seconds_sec h6 {
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    transform: translate(50px, 0);
+}
+
+
+
+
+.DigitalClock .bar_seconds_hr h2 {
+    color: #ff2972;
+}
+
+.DigitalClock .bar_seconds_min h2 {
+    color: #fee800;
+}
+
+.DigitalClock .bar_seconds_sec h2 {
+    color: #04fc43;
+}
+
+
+
+
+
+.DigitalClock .bar_seconds_hr .dots,
+.bar_seconds_min .dots,
+.bar_seconds_sec .dots {
+    position: absolute;
+    transform: rotate(calc(var(--index)*6deg));
+    inset: 0px;
+    text-align: center;
+}
+
+.DigitalClock .bar_seconds_hr .dots {
+    transform: rotate(calc(var(--index)*30deg));
+}
+
+
+.DigitalClock .bar_seconds_hr .dots p,
+.bar_seconds_min .dots p,
+.bar_seconds_sec .dots p {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    border-radius: 10px;
+    background-color: #04fc43;
+    box-sizing: 0 0 10px #04fc43,
+        0 0 20px #04fc43,
+        0 0 30px #04fc43;
+}
+
+.DigitalClock .bar_seconds_hr .dots p,
+.bar_seconds_min .dots:nth-child(5n) p,
+.bar_seconds_sec .dots:nth-child(5n) p {
+    background-color: #04fc43;
+    box-sizing: 0 0 10px #04fc43,
+        0 0 20px #04fc43,
+        0 0 30px #04fc43;
+    width: 2px;
+    transform: translateY(1px);
+    height: 22px;
+}
+
+.DigitalClock .bar_seconds_hr .dots p {
+    background-color: #ff2972;
+}
+
+.DigitalClock .bar_seconds_hr .dots p::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    /* top: 5px; */
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #ff2972;
+    box-shadow: 10px 1px #ff2972,
+        20px 4px #ff2972,
+        30px 8px #ff2972;
+
+}
+
+.bar_seconds_min .dots:nth-child(5n) p,
+.bar_seconds_min .dots p {
+    background-color: #fee800;
+}
+
+.bar_seconds_sec .dots p {
+    background-color: #04fc43;
+}
+
+
+.DigitalClock .active.dots~.dots p::before,
+.DigitalClock .active.dots~.dots p {
+    background-color: #888;
+
+}
+
+.DigitalClock .active.dots~.dots p::before {
+    box-shadow: 10px 1px #888,
+        20px 4px #888,
+        30px 8px #888;
+}
+
+
+
+.none {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:425px) {
+
+    .DigitalClock {
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .DigitalClock .bar_seconds_hr,
+    .bar_seconds_min,
+    .bar_seconds_sec {
+        width: 160px;
+        height: 160px;
+        width: 100%;
+    }
+
+    .bar_seconds_hr {
+        grid-column: 1/3;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2,
+    .DigitalClock .bar_seconds_min h2,
+    .DigitalClock .bar_seconds_sec h2 {
+        top: 45px;
+        font-size: 35px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2 span,
+    .DigitalClock .bar_seconds_min h2 span,
+    .DigitalClock .bar_seconds_sec h2 span {
+        bottom: -10px;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+
+
+
+
+
+    .DigitalClock .bar_seconds_sec h6 {
+        font-size: 13px;
+        transform: translate(35px, -5px);
+    }
+
+
+
+
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots p,
+    .bar_seconds_sec .dots p {
+        width: 0.5px;
+        height: 8px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots:nth-child(5n) p,
+    .bar_seconds_sec .dots:nth-child(5n) p {
+        width: 0.5px;
+        transform: translateY(4px);
+        height: 16px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p::before {
+        left: 5px;
+        width: 3px;
+        height: 3px;
+        box-shadow: 8px 1px #ff2972,
+            16px 3px #ff2972,
+            24px 6px #ff2972;
+    }
+
+
+    .DigitalClock .active.dots~.dots p::before {
+        box-shadow: 8px 1px #888,
+            16px 3px #888,
+            24px 6px #888;
+    }
+
+    .none {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width:425px) {
+    .DigitalClock {
+        width: 100%;
+        height: 75vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .DigitalClock .bar_seconds_hr,
+    .bar_seconds_min,
+    .bar_seconds_sec {
+        width: 190px;
+        height: 190px;
+        width: 100%;
+    }
+
+    .DigitalClock .bar_seconds_hr {
+        grid-column: 1/3;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2,
+    .DigitalClock .bar_seconds_min h2,
+    .DigitalClock .bar_seconds_sec h2 {
+        top: 55px;
+        font-size: 45px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2 span,
+    .DigitalClock .bar_seconds_min h2 span,
+    .DigitalClock .bar_seconds_sec h2 span {
+        bottom: -8px;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+
+
+
+
+
+    .DigitalClock .bar_seconds_sec h6 {
+        font-size: 13px;
+        transform: translate(45px, -2px);
+    }
+
+
+
+
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots p,
+    .bar_seconds_sec .dots p {
+        width: 2px;
+        height: 10px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots:nth-child(5n) p,
+    .bar_seconds_sec .dots:nth-child(5n) p {
+        width: 2px;
+        transform: translateY(3px);
+        height: 19px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p::before {
+        left: 8px;
+        width: 4px;
+        height: 4px;
+        box-shadow: 9px 2px #ff2972,
+            18px 4px #ff2972,
+            26px 8px #ff2972;
+    }
+
+
+    .DigitalClock .active.dots~.dots p::before {
+        box-shadow: 9px 2px #888,
+            18px 4px #888,
+            26px 8px #888;
+    }
+
+    .none {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+@media(min-width:768px) {
+    .DigitalClock {
+        height: 50vh;
+        display: flex;
+        gap: 20px;
+    }
+
+    .DigitalClock .bar_seconds_hr,
+    .bar_seconds_min,
+    .bar_seconds_sec {
+        width: 200px;
+        height: 200px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2,
+    .DigitalClock .bar_seconds_min h2,
+    .DigitalClock .bar_seconds_sec h2 {
+        top: 55px;
+        font-size: 50px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2 span,
+    .DigitalClock .bar_seconds_min h2 span,
+    .DigitalClock .bar_seconds_sec h2 span {
+        bottom: -5px;
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+
+
+
+
+
+    .DigitalClock .bar_seconds_sec h6 {
+        font-size: 13px;
+        transform: translate(45px, 0px);
+    }
+
+
+
+
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots p,
+    .bar_seconds_sec .dots p {
+        width: 2px;
+        height: 12px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots:nth-child(5n) p,
+    .bar_seconds_sec .dots:nth-child(5n) p {
+        width: 2px;
+        transform: translateY(1px);
+        height: 22px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p::before {
+        left: 8px;
+        width: 4px;
+        height: 4px;
+        box-shadow: 10px 2px #ff2972,
+            20px 4px #ff2972,
+            30px 8px #ff2972;
+    }
+
+
+    .DigitalClock .active.dots~.dots p::before {
+        box-shadow: 10px 2px #888,
+            20px 4px #888,
+            30px 8px #888;
+    }
+    .none {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+@media(min-width:1024px) {
+    .DigitalClock {
+        width: 80%;
+        gap: 50px;
+    }
+
+    .DigitalClock .bar_seconds_hr,
+    .bar_seconds_min,
+    .bar_seconds_sec {
+        width: 220px;
+        height: 220px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2,
+    .DigitalClock .bar_seconds_min h2,
+    .DigitalClock .bar_seconds_sec h2 {
+        top: 65px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2 span,
+    .DigitalClock .bar_seconds_min h2 span,
+    .DigitalClock .bar_seconds_sec h2 span {
+        letter-spacing: 2px;
+    }
+
+
+
+
+
+
+    .DigitalClock .bar_seconds_sec h6 {
+        transform: translate(45px, 0px);
+    }
+
+
+
+
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots p,
+    .bar_seconds_sec .dots p {
+        height: 14px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots:nth-child(5n) p,
+    .bar_seconds_sec .dots:nth-child(5n) p {
+        transform: translateY(-1px);
+        height: 24px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p::before {
+        left: 10x;
+        box-shadow: 12px 2px #ff2972,
+            24px 5px #ff2972,
+            36px 10px #ff2972;
+    }
+
+
+    .DigitalClock .active.dots~.dots p::before {
+        box-shadow: 12px 2px #888,
+            24px 5px #888,
+            36px 10px #888;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media(min-width:1200px) {
+    .DigitalClock {
+        width: 70%;
+        gap: 100px;
+    }
+
+    .DigitalClock .bar_seconds_hr,
+    .bar_seconds_min,
+    .bar_seconds_sec {
+        width: 240px;
+        height: 240px;
+    }
+
+
+    .DigitalClock .bar_seconds_hr h2,
+    .DigitalClock .bar_seconds_min h2,
+    .DigitalClock .bar_seconds_sec h2 {
+        top: 75px;
+    }
+
+
+
+
+
+
+
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots p,
+    .bar_seconds_sec .dots p {
+        height: 16px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p,
+    .bar_seconds_min .dots:nth-child(5n) p,
+    .bar_seconds_sec .dots:nth-child(5n) p {
+        transform: translateY(-3px);
+        height: 28px;
+    }
+
+    .DigitalClock .bar_seconds_hr .dots p::before {
+        left: 10x;
+        width: 5px;
+        height: 5px;
+        box-shadow: 14px 2px #ff2972,
+            28px 5px #ff2972,
+            40px 10px #ff2972;
+    }
+
+
+    .DigitalClock .active.dots~.dots p::before {
+        box-shadow: 14px 2px #888,
+            28px 5px #888,
+            40px 10px #888;
+    }
+}

@@ -1,0 +1,846 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #1b1b1b;
+    font-family: "Merienda", cursive;
+}
+
+
+
+
+
+
+
+
+.allClock {
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+}
+
+.allClock .btnClock_Digital_Analog {
+    position: absolute;
+    bottom: 10vh;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.allClock .btnClock_Digital_Analog button {
+    background-color: transparent;
+    color: #00ffff;
+    font-size: 18px;
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #00ffff4b;
+    transition: all 0.5s;
+}
+
+
+.allClock .btnClock_Digital_Analog button:hover {
+    border: 1px solid #00ffff;
+}
+
+
+
+
+
+
+
+
+
+
+.clock_wrapper {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+}
+
+.clock_wrapper .number_hours,
+.bar_seconds {
+    /* background-color: #56ff47; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock_wrapper .number_hours span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.clock_wrapper .number_hours span p {
+    color: #00ffff;
+    font-size: 40px;
+    text-shadow: 0 0 10px #00ffff;
+    transform: rotate(calc(var(--index)* -30deg));
+}
+
+
+
+
+
+
+
+
+
+
+.clock_wrapper .number_hours .hands_box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+.clock_wrapper .number_hours .hands_box .hand {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.clock_wrapper .number_hours .hands_box .hand i {
+    display: inline-block;
+    transform-origin: bottom;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+.clock_wrapper .number_hours .hands_box .hours {
+    width: 300px;
+    height: 300px;
+}
+
+.clock_wrapper .number_hours .hands_box .hours i {
+    background-color: #00ffff;
+    width: 6px;
+    height: 150px;
+}
+
+.clock_wrapper .number_hours .hands_box .hours::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+
+
+
+
+
+
+
+
+
+.clock_wrapper .number_hours .hands_box .minutes {
+    width: 400px;
+    height: 400px;
+}
+
+.clock_wrapper .number_hours .hands_box .minutes::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #00ffff;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+.clock_wrapper .number_hours .hands_box .minutes i {
+    background-color: #00ffff;
+    width: 4px;
+    height: 250px;
+}
+
+
+
+
+
+
+.clock_wrapper .number_hours .hands_box .seconds {
+    width: 440px;
+    height: 440px;
+}
+
+.clock_wrapper .number_hours .hands_box .seconds::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px #00000080;
+}
+
+.clock_wrapper .number_hours .hands_box .seconds i {
+    background-color: #fff;
+    width: 3px;
+    height: calc(220px + 60px);
+    box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clock_wrapper .bar_seconds span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -20px;
+    text-align: center;
+}
+
+.clock_wrapper .bar_seconds span p {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background-color: #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.clock_wrapper .bar_seconds span:nth-child(5n) p {
+    background-color: #00ffff;
+    width: 4px;
+    transform: translateY(1px);
+    height: 22px;
+
+}
+
+
+.none {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:425px) {
+
+
+    .allClock {
+        /* min-height: 100vh; */
+        padding-top: 10vh;
+    }
+
+    .allClock .btnClock_Digital_Analog {
+        bottom: 5vh;
+        left: 50%;
+    }
+
+    .allClock .btnClock_Digital_Analog button {
+        width: 220px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper {
+        width: 250px;
+        height: 250px;
+    }
+
+    .clock_wrapper .number_hours span p {
+        font-size: 25px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .hours {
+        width: 160px;
+        height: 160px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours i {
+        width: 3px;
+        height: 90px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours::before {
+        width: 20px;
+        height: 20px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .minutes {
+        width: 250px;
+        height: 250px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes i {
+        width: 3px;
+        height: 150px;
+    }
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .seconds {
+        width: 270px;
+        height: 270px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds::before {
+        width: 14px;
+        height: 14px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds i {
+        height: calc(105px + 60px);
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .bar_seconds span p {
+        width: 1px;
+        height: 8px;
+    }
+
+    .clock_wrapper .bar_seconds span:nth-child(5n) p {
+        width: 2px;
+        transform: translateY(3px);
+        height: 15px;
+    }
+}
+
+
+
+
+
+
+@media(min-width:425px) {
+    .allClock .btnClock_Digital_Analog {
+        bottom: 0vh;
+        left: 50%;
+    }
+
+    .allClock .btnClock_Digital_Analog button {
+        width: 220px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper {
+        width: 350px;
+        height: 350px;
+    }
+
+    .clock_wrapper .number_hours span p {
+        font-size: 30px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .hours {
+        width: 200px;
+        height: 200px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours i {
+        width: 4px;
+        height: 100px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours::before {
+        width: 21px;
+        height: 21px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .minutes {
+        width: 310px;
+        height: 310px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes i {
+        width: 4px;
+        height: 200px;
+    }
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .seconds {
+        width: 370px;
+        height: 370px;
+        /* background-color: #00000080; */
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds::before {
+        width: 14px;
+        height: 14px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds i {
+        height: calc(170px + 60px);
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .bar_seconds span p {
+        width: 2px;
+        height: 10px;
+    }
+
+    .clock_wrapper .bar_seconds span:nth-child(5n) p {
+        width: 3px;
+        transform: translateY(3px);
+        height: 22px;
+    }
+}
+
+
+
+
+
+@media(min-width:768px) {
+    .allClock .btnClock_Digital_Analog {
+        bottom: 0vh;
+        left: 50%;
+    }
+
+    .allClock .btnClock_Digital_Analog button {
+        width: 220px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper {
+        width: 370px;
+        height: 370px;
+    }
+
+    .clock_wrapper .number_hours span p {
+        font-size: 30px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .hours {
+        width: 230px;
+        height: 230px;
+    }
+
+
+    .clock_wrapper .number_hours .hands_box .hours i {
+        /* width: 4px; */
+        height: 120px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours::before {
+        width: 21px;
+        height: 21px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .minutes {
+        width: 350px;
+        height: 350px;
+    }
+
+    /* .clock_wrapper .number_hours .hands_box .minutes::before {
+        width: 20px;
+        height: 20px;
+    } */
+
+    .clock_wrapper .number_hours .hands_box .minutes i {
+        /* width: 4px; */
+        height: 210px;
+    }
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .seconds {
+        width: 390px;
+        height: 390px;
+        /* background-color: #ff00005d; */
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds::before {
+        width: 13px;
+        height: 13px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds i {
+        height: calc(180px + 60px);
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .bar_seconds span p {
+        /* width: 2px; */
+        height: 11px;
+    }
+
+    .clock_wrapper .bar_seconds span:nth-child(5n) p {
+        /* width: 2px; */
+        transform: translateY(1px);
+        height: 23px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media(min-width:1024px) {
+    .allClock .btnClock_Digital_Analog {
+        bottom: 5vh;
+        left: 13%;
+    }
+
+    /* .allClock .btnClock_Digital_Analog button {
+        width: 220px;
+    } */
+
+
+
+
+
+    .clock_wrapper {
+        width: 410px;
+        height: 410px;
+    }
+
+    .clock_wrapper .number_hours span p {
+        font-size: 35px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .hours {
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .clock_wrapper .number_hours .hands_box .hours i {
+        width: 5px;
+        height: 140px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours::before {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .minutes {
+        width: 380px;
+        height: 380px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes i {
+        width: 5px;
+        height: 220px;
+    }
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .seconds {
+        width: 440px;
+        height: 440px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds::before {
+        width: 15px;
+        height: 15px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds i {
+        height: calc(200px + 60px);
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .bar_seconds span p {
+        width: 3px;
+        height: 13px;
+    }
+
+    .clock_wrapper .bar_seconds span:nth-child(5n) p {
+        width: 3px;
+        transform: translateY(-1px);
+        height: 26px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media(min-width:1200px) {
+    .allClock .btnClock_Digital_Analog {
+        bottom: 8vh;
+        left: 13%;
+    }
+
+
+
+
+
+    .clock_wrapper {
+        width: 480px;
+        height: 480px;
+    }
+
+    .clock_wrapper .number_hours span p {
+        font-size: 40px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .hours {
+        width: 330px;
+        height: 330px;
+    }
+
+
+    .clock_wrapper .number_hours .hands_box .hours i {
+        width: 6px;
+        height: 175px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .hours::before {
+        width: 25px;
+        height: 25px;
+    }
+
+
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .minutes {
+        width: 430px;
+        height: 430px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .minutes i {
+        width: 5px;
+        height: 250px;
+    }
+
+
+
+
+
+
+    .clock_wrapper .number_hours .hands_box .seconds {
+        width: 510px;
+        height: 510px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .clock_wrapper .number_hours .hands_box .seconds i {
+        height: calc(250px + 60px);
+    }
+
+
+
+
+
+
+/* 
+
+    .clock_wrapper .bar_seconds span p {
+        width: 3px;
+        height: 13px;
+    }
+
+    .clock_wrapper .bar_seconds span:nth-child(5n) p {
+        width: 3px;
+        transform: translateY(-1px);
+        height: 26px;
+    } */
+}
